@@ -1,0 +1,60 @@
+﻿@model Configuration.Data.Models.Person
+
+@{
+    ViewData["Title"] = "Complex Object";
+}
+
+<div class="info-row">
+
+    <div class="info-col">
+
+        <h2 class="configuration_info_title">DB configuration - loading a Complex Object:</h2>
+
+        <div class="configuration_info">
+            <p>
+
+                After loading all the configuration information from the database into the app configuration through the <code>Program</code> class, in its
+                <code>CreateWebHostBuilder().ConfigureAppConfiguration</code> method while the app is starting up, as described
+                <a asp-controller="DB" asp-action="DBInfo">here</a>, it is available for the application to use as any other loaded configuration.
+            </p>
+            <p>
+                Then the configuration info can be used from anywhere in the app, by injecting a configuration (<code>IConfiguration _configuration</code>) object into the class constructor. 
+                From there the info is available to be used throughout the class.
+            </p>
+            <p>
+                For rendering, the configuration info is loaded here by injecting an <code>IConfiguration</code> object to the controller constructor and loading the info into a
+                <code>Person</code> POCO object, using the <code>_configuration.GetSection("Complex").Get<<text>Person</text>>();</code> method (<code>.Get<<text>Person</text>>()</code> 
+                binds the result to the <code>Person</code> class, and passing the dictionary object to the view.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="info-col info-col-card">
+
+        <div class="card-size">
+            <div class="card-header">
+                <h5><b>DB configuration - loading a Complex Object:</b></h5>
+            </div>
+            <div class="card-body">
+
+                <p class="list-group-item"><b>Name: </b>@Model.Name</p>
+                <p class="list-group-item"><b>Email: </b> @Model.Email</p>
+                <p class="list-group-item"><b>Position: </b> @Model.Position</p>
+                <p class="list-group-item">
+                    <b>Address: </b> <br />
+                    @Model.Address.Street <br />
+                    @Model.Address.City, @Model.Address.Zipcode &nbsp; @Model.Address.Country
+                </p>
+                <p class="list-group-item">
+                    <b>Department: </b> <br />
+                    @Model.Department.Name - <cite> @Model.Department.Description </cite>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

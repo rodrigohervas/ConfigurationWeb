@@ -1,0 +1,60 @@
+﻿@model ContactViewModel
+
+<!-- Access the configuration injecting an IConfiguration object into the view directly -->
+@inject IConfiguration  configuration
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="info-row">
+
+    <div class="info-col">
+
+        <h2 class="configuration_info_title">Contact</h2>
+
+        <div class="configuration_info">
+            <p>
+                The configuration is defined in a custom configuration file (<code>Contact.json</code>), and added to the application configuration in
+                <code>Program.ConfigureAppConfiguration()</code>, while the app is starting up.
+            </p>
+            <p>
+                Then the configuration info can be used from anywhere in the app, by injecting a configuration (<code>IConfiguration _configuration</code>) object into the class constructor. From there
+                the info is available to be used throughout the class.
+            </p>
+            <p>
+                For rendering, the configuration information is loaded into a <code>ViewModel (ContactViewModel)</code> from the <code>Contact</code> action in the <code>Home</code> controller:
+                <code>_configuration.GetSection("Contact").Get<<text>ContactViewModel</text>>()</code>.
+            </p>
+            <p>
+                For the last message (Message), the info has been loaded at app startup from <code>appsettings.json</code>, and injected directly onto the view <code>Contant</code> using the 
+                <code>@@inject</code> directive: <code>@@inject IConfiguration  configuration</code>). Then the configuration is available in the view for rendering its info: 
+                <code>@@configuration["ContactMessage"]</code>.
+
+            </p>
+        </div>
+
+    </div>
+
+    <div class="info-col info-col-card">
+
+        <div class="card-size">
+            <div class="card-header">
+                <h5><b>Contact Information:</b></h5>
+            </div>
+            <div class="card-body">
+                <p class="list-group-item"><b>Name: </b> @Model.Name </p>
+                <p class="list-group-item"><b>Position: </b> @Model.Position </p>
+                <p class="list-group-item"><b>Email: </b> @Model.Email </p>
+                <p class="list-group-item"><b>Street: </b> @Model.Street </p>
+                <p class="list-group-item"><b>City: </b> @Model.City </p>
+                <p class="list-group-item"><b>State: </b> @Model.State </p>
+                <p class="list-group-item"><b>Zipcode: </b> @Model.Zipcode </p>
+                <!-- Read the configuration key using the IConfiguration object injected into the view directly -->
+                <p class="list-group-item  message-color"><b>Message:</b> @configuration["ContactMessage"]</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

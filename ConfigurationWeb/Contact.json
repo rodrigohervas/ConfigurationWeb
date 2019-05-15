@@ -1,0 +1,11 @@
+{
+    "Contact": {
+        "Name": "Mary Johnson",
+        "Position": "Sales Manager",
+        "Email": "mary.johnson@herta.com",
+        "Street": "123 Alamo Lane",
+        "City": "Boca Raton",
+        "State": "FL",
+        "Zipcode": "29015"
+    }
+}

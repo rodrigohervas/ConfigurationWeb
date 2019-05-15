@@ -1,0 +1,47 @@
+﻿
+.flexbox-container {
+    display: flex;
+    justify-content: center; /*align contents in center of container*/
+    width: 100%;
+    border-radius: calc(0.5rem - 1px);
+    min-height: 500px;
+    border: 0px solid greenyellow; /* for testing */
+    margin: 3% 0 3% 0;
+}
+
+.flexbox-contents {
+    display: flex;
+    flex-direction: row; /* Set the organization direction of the items in flexbox-contents */
+    justify-content: space-around;
+    align-items: center; /* vertical align to center */
+    flex-wrap: wrap; /* wrap for multiline | nowrap for single line*/
+    border: 0px solid grey; /* For testing */
+    width: 100%;
+}
+
+.flexbox-contents-item {    
+    padding: 15px;
+    border: 0px solid black;
+}
+
+.primary-text {
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 32px;
+    color: white;
+}
+
+.secondary-text {
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-size: 24px;
+    color: white;
+}
+
+.darken-image {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), 
+        url('../images/close-up-code-coding - 1920x800.jpg');
+    background-size: cover;
+}

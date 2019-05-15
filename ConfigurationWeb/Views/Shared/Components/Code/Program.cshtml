@@ -1,0 +1,59 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Default";
+}
+
+<div class="modal" id="ProgramModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="codeModalLabel">Program</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+<pre>
+    <code>
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateWebHostBuilder(args).Build().Run();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                config.SetBasePath(Directory.GetCurrentDirectory());
+                
+                config.AddJsonFile("appsettings.CustomerInfo.json", optional: true, reloadOnChange: true);
+                config.AddJsonFile("appsettings.Team.json", optional: true, reloadOnChange: true);
+                config.AddJsonFile("Contact.json", optional: true, reloadOnChange: true);
+
+                AddDbConfiguration(config);
+            })
+            .UseStartup<Startup>();
+
+        private static void AddDbConfiguration(IConfigurationBuilder configurationBuilder)
+        {
+            var configuration = configurationBuilder.Build();
+            var connectionString = configuration.GetConnectionString("ConfigurationConnectionString");
+            configurationBuilder.AddDBConfigurationProvider(options => options.UseSqlServer(connectionString));
+        }
+
+    }
+    </code>
+</pre>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        @ViewBag.Title
+    </title>
+
+    <!-- Title icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/configuratorIcon.ico" />
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap 4.3.1 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Work+Sans|Roboto" rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/footer-alignment.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
+</head>
+
+<body>
+
+    <!-- Main body container for top position -->
+    <div class="content-wrapper-top">
+    
+        <!-- NavBar -->
+        <div class="col header-footer-background">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand pb-3 pt-2 logo-position" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+                    <span><img class="navbar-icon-custom" src="~/images/key.png"></span>
+                </button>
+                <div class="collapse navbar-collapse header-font" id="navbarMenu">
+                    <ul class="navbar-nav mr-0 pt-3">
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Index"> Home </a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Team">Team</a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Customer">Customer</a></li>
+                        <li class="nav-item">
+                            <a class="dropdown dropdown-toggle" data-toggle="dropdown" id="dropdownDB" asp-controller="DB" asp-action="DBInfo">
+                                <i class="fa fa-database fa-fw" aria-hidden="true"></i>&nbsp;Database
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownDB">
+                                <a class="column-item" asp-controller="DB" asp-action="DBInfo">DB Intro</a>
+                                <a class="column-item" asp-controller="DB" asp-action="Index">Basic DB</a>
+                                <a class="column-item" asp-controller="DB" asp-action="ComplexObject">Complex Object</a>
+                                <a class="column-item" asp-controller="DB" asp-action="Departments">Departments</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content-position">
+
+            @RenderBody()
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer-bottom header-footer-background">
+
+        <div class="footer-row footer-row-logo">
+            <div class="footer-col footer-col-left">
+                <!-- Logo -->
+                <img src="~/images/logo.png">
+            </div>
+        </div>
+
+        <div class="footer-row footer-row-main">
+
+            <div class="footer-col footer-col-left">
+                <!-- Footer menu -->
+                <nav class="nav">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index"> Home </a>
+                    <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="Team">Team</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="Customer">Customer</a>
+                    <a class="nav-link" asp-controller="DB" asp-action="DBInfo">DB Intro</a>
+                    <a class="nav-link" asp-controller="DB" asp-action="Index">Basic DB</a>
+                    <a class="nav-link" asp-controller="DB" asp-action="ComplexObject">Complex Object</a>
+                    <a class="nav-link" asp-controller="DB" asp-action="Departments">Departments</a>
+                </nav>
+            </div>
+
+            <div class="footer-col footer-col-center">
+                <!-- Address + contact email -->
+                <div class="footer-col-center-address">
+                    <i class="fas fa-map-marker-alt fa-2x middle"></i>
+                    &nbsp;
+                    1234 21<sup>st</sup> Street, NW <span class="second-line"> Washington, DC USA</span>
+                </div>
+                <div class="footer-col-center-address">
+                    <i class="fas fa-phone-square fa-2x"></i>
+                    &nbsp;
+                    +1 000 123 0000
+                </div>
+                <div class="footer-col-center-address">
+                    <i class="fas fa-envelope fa-2x"></i>
+                    &nbsp;
+                    contact@configurator.com
+                </div>
+            </div>
+
+            <div class="footer-col footer-col-right">
+                <!-- Brief description about company + social media logos -->
+                <p>
+                    About Configurator Inc: <br>
+                    One goal, one passion - configuration.
+                </p>
+                <div>
+                    <i class="fab fa-facebook fa-2x"></i>
+                    <i class="fab fa-twitter-square fa-2x"></i>
+                    <i class="fab fa-linkedin fa-2x"></i>
+                    <i class="fab fa-github-square fa-2x"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-row footer-row-bottom">
+            <div class="footer-col footer-col-center">
+                <div class="footer-bottom-col">
+                    <p class="text-center">
+                        <i class="far fa-copyright"></i> Configurator 2019
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+    <!-- END CONTAINER CLASS
+    </div>-->
+    <!-- jQuery, Popper and Bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewData["Title"] = "Configuration from a database";
+}
+
+@*<p><a data-toggle="modal" href="#DBConfigurationProviderModal"><code>DBConfigurationProvider</code></a></p>
+    <p><a data-toggle="modal" href="#DBConfigurationSourceModal"><code>DBConfigurationSource</code></a></p>
+    <p><a data-toggle="modal" href="#DBConfigurationSourceExtensionsModal"><code>DBConfigurationSourceExtensions</code></a></p>
+    <p><a data-toggle="modal" href="#ProgramModal"><code>Program</code></a></p>*@
+
+<h2 class="configuration_info_title">Reading ASP.NET Core 2 app Configuration from a database:</h2>
+
+<div class="info-row">
+
+    <div class="info-col-fullrow">
+
+        <h4 class="configuration_info_title">Introduction:</h4>
+
+        <div class="configuration_info">
+
+            <p>All configuration in ASP.NET Core is based around the following building blocks: Configuration Sources, Providers, Sections and Settings.</p>
+            <ul>
+                <li>
+                    <u>Configuration Sources</u> are configuration storage sources, such as a file (JSON, XML, ini), environment variables, a database or a Key Vault (secrets).
+                </li>
+                <li>
+                    <u>Configuration Providers</u> contain the logic to retrieve the configuration settings from a configuration source, and then providing these settings as Key/Value pairs
+                    to be used. In this section we will custom implement a database configuration provider to store/read our configuration from this database.
+                </li>
+                <li>
+                    <u>Configuration Sections</u> allow the grouping of values into named sections.
+                </li>
+            </ul>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="info-row">
+
+    <div class="info-col">
+
+        @await Component.InvokeAsync("Code", "DBConfigurationProvider")
+
+        <h4 class="configuration_info_title">1. Configuration Provider:</h4>
+
+        <div class="configuration_info">
+            <p>
+                Our configuration provider (<a data-toggle="modal" href="#DBConfigurationProviderModal"><code>DBConfigurationProvider</code></a>) contains all the logic to access the configuration information at run-time. Like any other configuration
+                provider it has to implement <code>IConfigurationProvider</code> (in our case, its helper class <code>ConfigurationProvider</code>). Mostly all we have to do is:
+            </p>
+            <ol>
+                <li>
+                    In the constructor of our <code>DBConfigurationProvider</code> class inject a <code>DbContextOptions</code> object (<code>Action<<text>DbContextOptionsBuilder</text>> dbContextOptions</code>),
+                    which is necessary to instantiate our <code>DbContext</code> class (<code>ConfigurationContext</code>).
+                </li>
+                <li>
+                    Override the <code>ConfigurationProvider.Load()</code> method, where we’ll read all the configuration stored in <code>ConfigurationContext</code>, and load it into a local
+                    dictionary object (<code>Data</code>).
+                </li>
+            </ol>
+
+        </div>
+    </div>
+    <div class="info-col">
+
+        @await Component.InvokeAsync("Code", "DBConfigurationSource")
+
+        <h4 class="configuration_info_title">2. Configuration Source:</h4>
+
+        <div class="configuration_info">
+            <p>
+                Now our configuration information can be read and loaded into the app configuration. The next step is to create a Configuration Source
+                (<a data-toggle="modal" href="#DBConfigurationSourceModal"><code>DBConfigurationSource</code></a>) to build our Configurator Provider
+                (<code>DBConfigurationProvider</code>) to make it available to the application.
+            </p>
+            <p>
+                In our <code>DBConfigurationSource</code> class we will override the <code>Build()</code> method of the <code>IConfigurationSource</code> class that our config source must
+                extend. <code>Build()</code> returns a new instance of our <code>DBConfigurationProvider</code> class.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="info-row">
+
+    <div class="info-col">
+
+        @await Component.InvokeAsync("Code", "DBConfigurationSourceExtensions")
+
+        <h4 class="configuration_info_title">3. Configuration Source Extension Method:</h4>
+
+        <div class="configuration_info">
+
+            <p>
+                At this point we can create an extension method (<a data-toggle="modal" href="#DBConfigurationSourceExtensionsModal"><code>DBConfigurationSourceExtensions</code></a>)
+                to add the configuration source at the <code>Program</code> class of our app, so it can run all this code and load the configuration from the database on startup.
+                This extension method will return a <code>DBConfigurationSource</code> object.
+            </p>
+        </div>
+
+    </div>
+    <div class="info-col">
+
+        @await Component.InvokeAsync("Code", "Program")
+
+        <h4 class="configuration_info_title">4. Loading Configuration:</h4>
+
+        <div class="configuration_info">
+            <p>
+                To load this configuration at startup time, all we have to do is create a <code>ConfigurationBuilder</code> object and call our custom <code>AddDBConfigurationProvider()</code>
+                method from our <code>DBConfigurationSourceExtensions</code> extension class. This must be done, in the <a data-toggle="modal" href="#ProgramModal"><code>Program</code></a>
+                class, in its <code>CreateWebHostBuilder().ConfigureAppConfiguration</code> method, and after the automatic default loading of the configuration, so we can access
+                the <code>connectionstring</code> for our configuration database that must be stored in one of the <code>appsettings.json</code> files.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="info-row">
+    <div class="info-col-fullrow">
+
+        <h4 class="configuration_info_title">5. Using Configuration:</h4>
+
+        <div class="configuration_info">
+            <p>
+                Once the configuration is loaded into the application, we can access it as any other configuration. I prefer injecting an <code>IConfiguration _configuration</code> object
+                into any class constructor, and from there manipulate to render/use its information in the views.
+            </p>
+        </div>
+
+
+    </div>
+
+</div>
+

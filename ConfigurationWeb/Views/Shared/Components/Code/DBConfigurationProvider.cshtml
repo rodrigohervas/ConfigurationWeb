@@ -1,0 +1,49 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Default";
+}
+
+<div class="modal" id="DBConfigurationProviderModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-center" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="codeModalLabel">DBConfigurationProvider</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+<pre>
+    <code>
+    public class DBConfigurationProvider: ConfigurationProvider
+    {
+        Action<DbContextOptionsBuilder> _dbContextOptions;
+
+        public DBConfigurationProvider(Action<DbContextOptionsBuilder> dbContextOptions)
+        {
+            _dbContextOptions = dbContextOptions;
+        }
+
+        public override void Load()
+        {
+            var dbContextOptionsBuilder = new DbContextOptionsBuilder<ConfigurationContext>();
+            _dbContextOptions(dbContextOptionsBuilder);
+
+            using (var dbContext = new ConfigurationContext(dbContextOptionsBuilder.Options))
+            {
+                Data = dbContext.ConfigurationValues.ToDictionary(d => d.Key, d => d.Value);
+            }
+        }
+    }
+    </code>
+</pre>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

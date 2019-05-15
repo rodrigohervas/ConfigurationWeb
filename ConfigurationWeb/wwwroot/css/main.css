@@ -1,0 +1,222 @@
+﻿
+/*---------------------- VARIABLES ----------------------*/
+:root {
+    --nav-background-color: rgb(0, 167, 245); /* Hex: #00A7F5 */ /*grey: rgb(233, 230, 233);*/
+    --nav-a: rgb(0, 18, 60);
+    --nav-a-hover: rgb(186, 168, 115); /*rgb(103, 216, 255);*/
+    --nav-a-active: rgb(192, 177, 102);
+    --body-font: 'Montserrat', sans-serif; /*'Roboto', sans-serif;  or 'Work Sans', sans-serif;*/
+    --custom-card-font: 'Roboto', sans-serif;
+    --card-header-color: rgb(66, 188, 244);
+    --card-header-image: url('../images/blank-coffee-beans-composition - 300x200.jpg');
+    --card-message-color: rgb(203, 242, 227);
+    --info-text-titles-color: #808080;
+}
+
+
+/*---------------------- BODY ----------------------*/
+
+html {
+    margin: 0;
+    /*background-color: #C0C0C0;*/
+}
+
+body {
+    font-family: var(--body-font);
+    font-weight: 500;
+    margin:0;
+    /*background-color: aqua;*/
+}
+
+.main-container {
+    /*width: 100vw;*/
+}
+
+
+/*---------------------- HEADER & NAVBAR ----------------------*/
+.header-footer-background {
+    background-color: var(--nav-background-color);
+}
+
+.logo-position {
+    padding-left: 50px;
+}
+
+#navbarMenu {
+    justify-content: flex-end;
+    padding-right: 5%;
+
+    /*background-color: beige;*/
+}
+
+nav {
+    /*background-color: maroon;*/
+}
+
+nav a {
+    font-weight: bold;
+    font-size: 1em;
+    color: var(--nav-a);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+    nav a:hover {
+        color: var(--nav-a-hover);
+        text-decoration: none;
+    }
+
+    nav a:active {
+        color: var(--nav-a-active);
+    }
+
+nav .nav-item {
+    margin-bottom: 1rem;
+}
+
+nav .dropdown-menu {
+    background-color: var(--nav-background-color);
+    margin-top: -1px;
+    border: 1px solid rgb(90, 196, 244);
+    border-radius: 0.25rem;
+    right: 0;
+    left: auto;
+}
+
+nav .column-item {
+    display: block;
+}
+
+
+/*---------------------- ALL CARDS ----------------------*/
+
+:root {
+    --min-width-col: 350px;
+    --min-width-card: 350px;
+    --max-width-card: 400px;
+    --width-card: 350px;
+}
+
+.card-size {
+    width: var(--width-card);
+    padding: 15px;
+}
+
+
+/*---------------------- CARD WITH IMAGE HEADER ----------------------*/
+
+.card-header-img {
+    width: 100%;
+    background-image: var(--card-header-image);
+    background-size: cover;
+    min-height: 250px;
+    opacity: 0.7;
+    border-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+
+.card-body {
+    padding: 0rem;
+    font-family: var(--custom-card-font);
+}
+
+.beige {
+    /*background-color: beige;*/
+}
+
+h4.card-title, h6.card-subtitle, p.card-text {
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+
+/*---------------------- CARD NO IMAGE ----------------------*/
+
+.card-header {
+    background-color: var(--card-header-color);
+    min-height: 50px;
+    align-content: space-around;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.message-color {
+    background-color: var(--card-message-color);
+}
+
+
+/*---------------------- LAYOUT MAIN CONTENT POSITION (POSITION of VIEW'S ) ----------------------*/
+
+.main-content-position { 
+    margin: 2% 10% 2% 10%;
+    /*background-color: whitesmoke;*/
+    border: 0px dashed black;
+}
+
+
+
+/*---------------------- CONFIGURATION INFORMATION TEXT ----------------------*/
+.configuration_info {
+    padding: 15px;
+    border: 0px solid rgb(221, 198, 198);
+    margin: 0px;
+    text-align: justify;
+}
+
+.configuration_info_title {
+    padding: 10px;
+    font-weight: bold;
+    color: var(--info-text-titles-color);
+}
+
+
+/*---------------------- INFORMATION DIVS ORGANIZATION ----------------------*/
+
+.info-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    min-width: var(--min-width-col);
+    border: 0px dotted blue;
+}
+
+.info-col {
+    width: 50%;
+    min-width: var(--min-width-col);
+    border: 0px solid black;
+}
+
+.info-col-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal alignment */
+    border: 0px solid red;
+}
+
+.info-col-card-fullrow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Horizontal alignment */
+    border: 0px solid yellow;
+}
+
+.info-col-fullrow {
+    width: 100%;
+    min-width: var(--min-width-col);
+    border: 0px solid black;
+}
+
+
+/*---------------------- MODAL ----------------------*/
+
+.modal {
+    left: 25%;
+}
+
+.modal-dialog {
+    max-width: 100%;
+    width: auto !important;
+    display: inline-block;
+}
+

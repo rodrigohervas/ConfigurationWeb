@@ -1,0 +1,61 @@
+﻿@model CustomerInfoViewModel
+@inject IConfiguration configuration
+
+@{
+    ViewData["Title"] = "Customer";
+}
+
+
+<div class="info-row">
+    
+    <div class="info-col">
+        <h2 class="configuration_info_title"> Customer </h2>
+
+        <div class="configuration_info">
+            <p>
+                The configuration is defined in a custom configuration file (<code>appsettings.CustomerInfo.json</code>), and added to the application configuration in
+                <code>Program.ConfigureAppConfiguration()</code>, while the app is starting up.
+            </p>
+            <p>
+                Then the configuration info can be used from anywhere in the app, by injecting a configuration (<code>IConfiguration _configuration</code>) object into the class constructor. From there
+                the info is available to be used throughout the class.
+            </p>
+            <p>
+                For rendering, the configuration information is loaded into a <code>ViewModel (CustomerInfoViewModel)</code> from the <code>Customer</code> action in the <code>Home</code> controller: 
+                <code>_configuration.GetSection("Customer").Get<<text>CustomerInfoViewModel</text>>()</code>.
+            </p>
+        </div>
+    </div>
+
+    <div class="info-col info-col-card">
+        <div class="card-size">
+            <!-- Information card -->
+            <div class="card shadow">
+                <div class="card-header-img"></div>
+                <div class="card-body beige">
+                    <h4 class="card-title text-center">Configuration Info</h4>
+                    <h6 class="card-subtitle text-muted text-center">Customer:</h6>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <p class="list-group-item"><b>Company:</b> @Model.Company </p>
+                        <p class="list-group-item">
+                            <b>Address:</b> <br />
+                            @Model.Address.Street <br />
+                            @Model.Address.City , @Model.Address.State @Model.Address.Zip
+                        </p>
+                        <p class="list-group-item"><b>Telephone:</b> @Model.Telephone </p>
+                        <p class="list-group-item"><b>Email:</b> @Model.Email </p>
+                        <p class="list-group-item"><b>Website:</b> @Model.Website </p>
+                        <p class="list-group-item"><b>Contact:</b> @Model.ContactName - @Model.ContactPosition </p>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <button class="btn btn-outline-primary btn-md" type="button" href="#">Contact</button>
+                    <button class="btn btn-md btn-outline-primary" type="button" href="#">Team</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+

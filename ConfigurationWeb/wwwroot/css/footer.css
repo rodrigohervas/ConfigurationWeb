@@ -1,0 +1,77 @@
+﻿
+/*---------------------- VARIABLES ----------------------*/
+:root {
+    --nav-background-color-grey: rgb(233, 230, 233);
+    --nav-background-color-blue: rgb(0, 167, 244); /*rgb(66, 188, 244);*/
+    --nav-background-color-blue-dark: rgb(0, 2, 38);
+    --nav-background-color-black: rgb(0, 0, 0);
+}
+
+
+/*---------------------- FOOTER STYLES ----------------------*/
+
+footer {
+    font-weight: 700;
+    font-size: 1em;
+    background-color: var(--nav-background-color-black);
+    border: 0px dashed brown;
+}
+
+.footer-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* wrap contents for responsive vertical alignment in smaller screens */
+    align-items: flex-start; /* vertically: align to top in row orientation */
+    border: 0px solid yellow; /* for testing */
+}
+
+.footer-row-logo {
+    justify-content: flex-start; /* horizontally: align left */
+}
+
+.footer-row-main {
+    justify-content: space-around; /* horizontally: center + justify items in row orientation */
+}
+
+.footer-row-bottom {
+    justify-content: center; /* horizontally: center */
+}
+
+.footer-col {
+    min-width: 400px;
+    padding: 15px;
+    border: 0px solid black;
+}
+
+.footer-col-left {
+    justify-content: flex-start; /* horizontally: align items left in row orientation */
+    flex-wrap: wrap;
+    flex-basis: 30%;
+}
+
+.footer-col-center {
+    justify-content: center; /* horizontally: align items center in row orientation */
+}
+
+.footer-col-center-address {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* horizontally: align items to start in row orientation */
+    border: 0px solid red;
+}
+
+.footer-col-right {
+    justify-content: center; /* horizontally: align items right in row orientation */
+    align-items: center; /* align contents vertically to center in row orientation */
+}
+
+.footer-row-bottom {
+    justify-content: center; /* horizontally: center items in row orientation */
+}
+
+.footer-bottom-col {
+    justify-content: flex-start;
+    border: 0px solid green;
+}
+
+
