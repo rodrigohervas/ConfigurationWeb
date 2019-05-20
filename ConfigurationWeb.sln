@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration.Web", "Config
 		{5F0F9FB1-F80C-4DEF-87DE-041537C9BAF7} = {5F0F9FB1-F80C-4DEF-87DE-041537C9BAF7}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration.Data", "Configuracion.Data\Configuration.Data.csproj", "{5F0F9FB1-F80C-4DEF-87DE-041537C9BAF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration.Data", "Configuration.Data\Configuration.Data.csproj", "{5F0F9FB1-F80C-4DEF-87DE-041537C9BAF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

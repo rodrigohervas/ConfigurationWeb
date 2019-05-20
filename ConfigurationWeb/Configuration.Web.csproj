@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>5f91b198-254f-47c1-b01e-4d02ecb66b8b</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Configuracion.Data\Configuration.Data.csproj" />
+    <ProjectReference Include="..\Configuration.Data\Configuration.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
