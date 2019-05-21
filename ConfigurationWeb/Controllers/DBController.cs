@@ -34,7 +34,7 @@ namespace Configuration.Web.Controllers
             appInfo.Add("sslPort", _configuration.GetValue<string>("sslPort"));
             appInfo.Add("TestUser", _configuration.GetValue<string>("TestUser"));
             appInfo.Add("TestUserGuid", _configuration.GetValue<string>("TestUserGuid"));
-            appInfo.Add("ConfigurationConnectionStringInDB", _configuration.GetValue<string>("ConfigurationConnectionStringInDB"));
+            appInfo.Add("ConfigurationConnectionStringDB", _configuration.GetValue<string>("ConfigurationConnectionStringDB"));
 
             return View(appInfo);
         }
