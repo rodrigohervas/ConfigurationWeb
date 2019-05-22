@@ -262,3 +262,5 @@ __pycache__/
 /appsettings.OLD.json
 /appsettings.Production.OLD.json
 /ConfigurationWeb/Properties/PublishProfiles/FolderProfile.pubxml
+/ConfigurationWeb/Properties/PublishProfiles/OLD
+/ConfigurationWeb/Properties/PublishProfiles/ConfigurationWeb - Web Deploy.pubxml
