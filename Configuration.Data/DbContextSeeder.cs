@@ -32,12 +32,12 @@ namespace Configuration.Data
                 new ConfigurationValue { Key = "Complex:Department:Name", Value = "IT Department" }, 
                 new ConfigurationValue { Key = "Complex:Department:Description", Value = "The IT Department is responsible for the digital well-being of the organization." }, 
 
-                new ConfigurationValue { Key = "Complex:Department:Production", Value = "Production Department"},
-                new ConfigurationValue { Key = "Complex:Department:Research", Value = "Research and Development Department" },
-                new ConfigurationValue { Key = "Complex:Department:Purchasing", Value = "Purchasing Department" }, 
-                new ConfigurationValue { Key = "Complex:Department:Marketing", Value = "Marketing and Sales Department" }, 
-                new ConfigurationValue { Key = "Complex:Department:HumanResources", Value = "Human Resources Management Department" }, 
-                new ConfigurationValue { Key = "Complex:Department:Finance", Value = "Accounting and Finance Department" }
+                new ConfigurationValue { Key = "Complex:Departments:Production", Value = "Production Department"},
+                new ConfigurationValue { Key = "Complex:Departments:Research", Value = "Research and Development Department" },
+                new ConfigurationValue { Key = "Complex:Departments:Purchasing", Value = "Purchasing Department" }, 
+                new ConfigurationValue { Key = "Complex:Departments:Marketing", Value = "Marketing and Sales Department" }, 
+                new ConfigurationValue { Key = "Complex:Departments:HumanResources", Value = "Human Resources Management Department" }, 
+                new ConfigurationValue { Key = "Complex:Departments:Finance", Value = "Accounting and Finance Department" }
                 );
 
             
