@@ -1,4 +1,4 @@
-# ConfigurationWeb
+# Access configuration from files and DB in ASP.NET Core 2
 
 ConfigurationWeb is an ASP.NET Core 2.1 web app that shows how to access configuration info stored in various json files (appsettings.json, appsettings.[Environment].json, appsettings.Team.json, etc.), and in a SQL Server database.
 
