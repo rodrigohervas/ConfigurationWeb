@@ -10,3 +10,6 @@ Technologies used:
 
 Front-End: ASP.NET MVC Core 2.1, HTML, CSS, Flexbox, Bootstrap, Javascript
 Back-End: Framework .Net Core 2.1, C#, EF Core 2.1
+
+## Live Site: 
+https://configurationweb.azurewebsites.net/
